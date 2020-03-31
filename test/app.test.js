@@ -1,5 +1,4 @@
 import app, { TimesTableArray, createGrid } from '../src/app';
-const $ = require('jquery');
 describe('app', function() {
   describe('Multiples', () => {
     it('should return a array of objects based on a given number', () => {
