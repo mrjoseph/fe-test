@@ -72,7 +72,7 @@ describe('app', function() {
       
       document.body.innerHTML = `<div id="div1"></div>`;
       createGrid(state)
-      const expected = `<div id="div1"><ul class="table"><li data-id="1" class="unselected"><div>1</div></li><li data-id="2" class="unselected"><div>2</div></li><li data-id="3" class="selected"><div>3</div></li><li data-id="4" class="unselected"><div>4</div></li><li data-id="5" class="unselected"><div>5</div></li><li data-id="6" class="selected"><div>6</div></li><li data-id="7" class="unselected"><div>7</div></li><li data-id="8" class="unselected"><div>8</div></li><li data-id="9" class="selected"><div>9</div></li><li data-id="10" class="unselected"><div>10</div></li></ul></div>`;
+      const expected = `<div id=\"div1\"><ul class=\"table\"><li data-id=\"1\" class=\"unselected\">1</li><li data-id=\"2\" class=\"unselected\">2</li><li data-id=\"3\" class=\"selected\">3</li><li data-id=\"4\" class=\"unselected\">4</li><li data-id=\"5\" class=\"unselected\">5</li><li data-id=\"6\" class=\"selected\">6</li><li data-id=\"7\" class=\"unselected\">7</li><li data-id=\"8\" class=\"unselected\">8</li><li data-id=\"9\" class=\"selected\">9</li><li data-id=\"10\" class=\"unselected\">10</li></ul></div>`;
       expect(document.body.innerHTML).toEqual(expected);
     });
   });

@@ -19,7 +19,7 @@ export class TimesTableArray {
   };
 }
 
-export const createGrid = (list) => {
+export const createGrid = (list, num) => {
   // As we are appending to the do lets remove the existing grid first
   const oldTable = document.querySelector('.table');
   if(oldTable) oldTable.remove();
@@ -32,12 +32,10 @@ export const createGrid = (list) => {
   list.forEach(({ number, selected}) => {
     const li = document.createElement("li");
     li.setAttribute('data-id', number);
-    const div = document.createElement("div");
     li.classList.add(addClass(selected));
     const node = document.createTextNode(number);
     
-    div.appendChild(node);
-    li.appendChild(div);
+    li.appendChild(node);
     ul.appendChild(li);
     ul.classList.add('table');
     var element = document.getElementById("div1");
@@ -57,7 +55,7 @@ const app = function() {
   document.querySelector('#div1').addEventListener('click', (event) => {
     const num = event.target.getAttribute('data-id')
     multiples.update(num);
-    createGrid(multiples.arrayList);
+    createGrid(multiples.arrayList, num);
   })  
 };
 
