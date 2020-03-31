@@ -47,7 +47,7 @@ export const createGrid = (list) => {
 
 const app = function() {
   // Create an array of objects with a given number
-  const multiples = new TimesTableArray(10);
+  const multiples = new TimesTableArray(144);
 
   // Create a grid of dom elements
   createGrid(multiples.arrayList);
