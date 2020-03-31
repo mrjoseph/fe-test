@@ -19,7 +19,7 @@ export class TimesTableArray {
   };
 }
 
-const createGrid = (list) => {
+export const createGrid = (list) => {
   // As we are appending to the do lets remove the existing grid first
   const oldTable = document.querySelector('.table');
   if(oldTable) oldTable.remove();
@@ -47,7 +47,7 @@ const createGrid = (list) => {
 
 const app = function() {
   // Create an array of objects with a given number
-  const multiples = new TimesTableArray(144);
+  const multiples = new TimesTableArray(10);
 
   // Create a grid of dom elements
   createGrid(multiples.arrayList);
