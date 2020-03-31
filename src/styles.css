@@ -30,6 +30,11 @@ li {
 li:hover {
   background-color:#cac7c7;
 }
+
+li.selected {
+  background-color: #75e8c2;
+}
+
 #div1{
   max-width:992px;
   margin:0 auto;

@@ -1,8 +1,3 @@
-// source goes here
-
-// build an array containing numbers from 1 > 144
-
-// Build a list of dom elements from array
 
 // Assign a click event to each element
 
@@ -39,11 +34,13 @@ export class Multiples {
 }
 
 const createTable = (list) => {
+  const oldTable = document.querySelector('.table');
+  if(oldTable) oldTable.remove();
   const addClass = (selected) => (selected)? 'selected' :'unselected';
-
-  var ul = document.createElement("ul");
+  const ul = document.createElement("ul");
   list.forEach(({ number, selected}) => {
     const li = document.createElement("li");
+    li.setAttribute('data-id', number);
     const div = document.createElement("div");
     li.classList.add(addClass(selected));
     const node = document.createTextNode(number);
@@ -53,15 +50,18 @@ const createTable = (list) => {
     ul.appendChild(li);
     ul.classList.add('table');
     var element = document.getElementById("div1");
-  element.appendChild(ul);
+    element.appendChild(ul);
   });
-  
 };
+
 const app = function() {
   const multiples = new Multiples(144);
-  const list  = multiples.arrayList;
-  createTable(list); 
-
+  createTable(multiples.arrayList); 
+  document.querySelector('#div1').addEventListener('click', (event) => {
+    const num = event.target.getAttribute('data-id')
+    multiples.update(num);
+    createTable(multiples.arrayList);
+  })  
 };
 
 export default app;
