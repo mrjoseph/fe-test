@@ -1,7 +1,4 @@
-
-// Assign a click event to each element
-
-export class Multiples {
+export class TimesTableArray {
   constructor(count){
     this.count = count + 1;
     const list = Array.from(Array(this.count));
@@ -33,10 +30,15 @@ export class Multiples {
   };
 }
 
-const createTable = (list) => {
+const createGrid = (list) => {
+  // As we are appending to the do lets remove the existing grid first
   const oldTable = document.querySelector('.table');
   if(oldTable) oldTable.remove();
+
+  // create a class based on the selected value in our object
   const addClass = (selected) => (selected)? 'selected' :'unselected';
+
+  // Create the dom nodes and apppend to the document
   const ul = document.createElement("ul");
   list.forEach(({ number, selected}) => {
     const li = document.createElement("li");
@@ -55,12 +57,18 @@ const createTable = (list) => {
 };
 
 const app = function() {
-  const multiples = new Multiples(144);
-  createTable(multiples.arrayList); 
+  // Create an array of objects with a given number
+  const multiples = new TimesTableArray(144);
+
+  // Create a grid of dom elements
+  createGrid(multiples.arrayList);
+
+  // Assign a click handler to the document #div1 and to get the clicked element so 
+  // we can update the array selected boolean and recreate our grid with the selected items  
   document.querySelector('#div1').addEventListener('click', (event) => {
     const num = event.target.getAttribute('data-id')
     multiples.update(num);
-    createTable(multiples.arrayList);
+    createGrid(multiples.arrayList);
   })  
 };
 

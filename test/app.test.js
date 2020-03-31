@@ -1,14 +1,14 @@
-import app, { Multiples } from '../src/app';
+import app, { TimesTableArray } from '../src/app';
 
 describe('app', function() {
   describe('Multiples', () => {
     it('should return a array of objects based on a given number', () => {
-      const multiples = new Multiples(10);
+      const multiples = new TimesTableArray(10);
       expect(multiples.init().length).toEqual(10);
       expect(multiples.init()[0]).toEqual({number: 1, selected: false})
     });
-    it('should the update selected boolean by multiples of 2', () => {
-      const multiples = new Multiples(10);
+    it('should update selected boolean by multiples of 2', () => {
+      const multiples = new TimesTableArray(10);
       const expected = [
         { number: 1, selected: false},
         { number: 2, selected: true},
@@ -25,8 +25,8 @@ describe('app', function() {
       expect(multiples.arrayList).toEqual(expected);
     });
 
-    it('should the update selected boolean by multiples of 3', () => {
-      const multiples = new Multiples(10);
+    it('should update selected boolean by multiples of 3', () => {
+      const multiples = new TimesTableArray(10);
       const expected = [
         { number: 1, selected: false},
         { number: 2, selected: false},

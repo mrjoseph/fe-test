@@ -41,18 +41,12 @@ li.selected {
 }
 
 @media (min-width: 576px) { 
-  body {
-    color: green;
-  }
   li{
     width: 46%;
   }
  }
 
 @media (min-width: 768px) {  
-  body {
-    color: blue;
-  }
   li{
     width: 30%;
   }
