@@ -1,5 +1,6 @@
 export class TimesTableArray {
   constructor(count){
+    if(!count) throw new TypeError('You need to pass TimesTableArray() a number')
     this.count = count + 1;
     const list = Array.from(Array(this.count));
     this.arrayList = list.map((_,index) => {
@@ -64,7 +65,7 @@ const app = function() {
   createGrid(multiples.arrayList);
 
   // Assign a click handler to the document #div1 and to get the clicked element so 
-  // we can update the array selected boolean and recreate our grid with the selected items  
+  // we can update the array selected boolean state and recreate our grid with the selected items  
   document.querySelector('#div1').addEventListener('click', (event) => {
     const num = event.target.getAttribute('data-id')
     multiples.update(num);

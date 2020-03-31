@@ -42,5 +42,13 @@ describe('app', function() {
       multiples.update(3);
       expect(multiples.arrayList).toEqual(expected);
     });
+    
+    it('should throw an error if no number is given', () => {
+      try {
+        new TimesTableArray();
+      } catch (error) {
+        expect(error.message).toEqual('You need to pass TimesTableArray() a number')
+      }
+    });
   })
 });
