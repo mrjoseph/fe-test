@@ -10,24 +10,12 @@ export class TimesTableArray {
       }
     }).slice(1);
   }
-  init (){
-    return this.arrayList;
-  }
-
   update(num) {
     const list = Array.from(Array(this.count));
-    this.arrayList = list.map((_,index) => {
-      if(index % num  === 0) {
-        return {
+    this.arrayList = list.map((_,index) => ({
           'number':index,
-          selected: true,
-        }
-      }
-          return {
-          'number':index,
-          selected: false,
-        }
-    }).slice(1);
+          selected: (index % num  === 0) && true,
+        })).slice(1);
   };
 }
 

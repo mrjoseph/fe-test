@@ -4,8 +4,8 @@ describe('app', function() {
   describe('Multiples', () => {
     it('should return a array of objects based on a given number', () => {
       const multiples = new TimesTableArray(10);
-      expect(multiples.init().length).toEqual(10);
-      expect(multiples.init()[0]).toEqual({number: 1, selected: false})
+      expect(multiples.arrayList.length).toEqual(10);
+      expect(multiples.arrayList[0]).toEqual({number: 1, selected: false})
     });
     it('should update selected boolean by multiples of 2', () => {
       const multiples = new TimesTableArray(10);
@@ -42,7 +42,13 @@ describe('app', function() {
       multiples.update(3);
       expect(multiples.arrayList).toEqual(expected);
     });
-    
+
+    it('should update the selected boolean ', () => {
+      const multiples = new TimesTableArray(144);
+      multiples.update(100);
+      expect(multiples.arrayList[99]).toEqual( { number: 100, selected: true});
+    });
+
     it('should throw an error if no number is given', () => {
       try {
         new TimesTableArray();
